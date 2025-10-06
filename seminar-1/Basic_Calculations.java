@@ -23,7 +23,7 @@
 
 import java.util.Scanner;  // Import the Scanner class
 
-class BasicCalculationsV2 {
+class BasicCalculations {
   public static void main(String[] args) {
     // Welcome user to calulator
     System.out.println("Welcome to the area and perimeter cacl for a rectangle!");
@@ -32,9 +32,13 @@ class BasicCalculationsV2 {
 
     System.out.print("Enter length: ");
     String length = scannerObject.nextLine();  // Read user inputed length
+    double lengthValue = Double.parseDouble(length);  // Convert length to double
+    System.out.println("Is odd input?: " + isOdd(lengthValue));
 
     System.out.print("Enter width: ");
     String width = scannerObject.nextLine();  // Read user inputed width
+    double widthValue = Double.parseDouble(width);
+    System.out.println("Is odd input?: " + isOdd(widthValue));
 
     // Area calc
     double calculatedArea = Double.parseDouble(length) * Double.parseDouble(width);  // Calculate area
@@ -43,5 +47,11 @@ class BasicCalculationsV2 {
     // Perimiter calc
     double calculatedPerimeter = 2 * (Double.parseDouble(length) + Double.parseDouble(width));  // Calculate perimeter
     System.out.println("Calculated perimeter is: " + calculatedPerimeter);
+  }
+
+  static boolean isOdd(double number) {
+    // Return true if the number is odd, false otherwise
+    return ((int) number % 2) != 0;
+    // % is modulas, 3 % 2 will have a reminder of 1, while an even number like 10, when 10 % 2 will leave no reminders, thus being even
   }
 }
