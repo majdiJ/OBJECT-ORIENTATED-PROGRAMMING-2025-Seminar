@@ -16,6 +16,22 @@
 import java.util.Scanner;
 
 public class Grade_Calculator {
+
+    static int getOnesDigit(double number) {
+        // Get the ones digit
+        return (int) (number % 10);
+    }
+
+    static String getGradeSufix(int number) {
+        if (number >= 7) {
+            return "+";
+        } else if (number <= 2) {
+            return "-";
+        } else {
+            return "";
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the grade calc!");
 
@@ -35,16 +51,18 @@ public class Grade_Calculator {
             System.out.println("Grade must be a number between 0 and 100!");
         }
 
+        String GradeSufix = getGradeSufix(getOnesDigit(scoreValue));
+
         if (scoreValue >= 90) {
-            System.out.println("Grade is: A");
+            System.out.println("Grade is: A" + GradeSufix);
         } else if (scoreValue >= 80) {
-            System.out.println("Grade is: B");
+            System.out.println("Grade is: B" + GradeSufix);
         } else if (scoreValue >= 70) {
-            System.out.println("Grade is: C");
+            System.out.println("Grade is: C" + GradeSufix);
         } else if (scoreValue >= 60) {
-            System.out.println("Grade is: D");
+            System.out.println("Grade is: D" + GradeSufix);
         } else if (scoreValue < 60) {
-            System.out.println("Grade is: F");
+            System.out.println("Grade is: F" + GradeSufix);
         }
     }
 }
