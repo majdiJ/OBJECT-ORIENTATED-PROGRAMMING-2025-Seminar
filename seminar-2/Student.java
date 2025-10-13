@@ -15,7 +15,7 @@ class Student {
     }
 
     if (age < 0 || age > 150) {
-      throw new IllegalArgumentException("Age cannot be null, below 1 or above 150");
+      throw new IllegalArgumentException("Age cannot be null or below 0");
     }
 
     if (gpa < 0 || gpa > 4) {
@@ -26,6 +26,26 @@ class Student {
     this.studentId = studentId;
     this.age = age;
     this.gpa = gpa;
+  }
+
+  public Student(String name, int studentId) {
+
+    if (name == null || name.isEmpty()) {
+      throw new IllegalArgumentException("Name cannot be null or empty");
+    }
+
+    if (studentId <= 0) {
+      throw new IllegalArgumentException("StudentID cannot be null or below 1");
+    }
+
+    this.name = name;
+    this.studentId = studentId;
+    this.age = 18;
+    this.gpa = 0;
+  }
+
+  public void updateGPA(double newGPA) {
+    this.gpa = newGPA;
   }
 
   public void displayInfo() {
@@ -46,18 +66,20 @@ class Student {
   public static void main(String[] args) {
         // Create instances of the Student class
         Student student1 = new Student("Alice", 1001, 20, 3.8);
-        Student student2 = new Student("Bob", 1002, 22, 2.5);
-        Student student3 = new Student("Charlie", 1003, 21, 1.9);
+        Student student2 = new Student("Bob", 1002);
+        Student student3 = new Student("Charlie", 1003);
 
         // Test the methods
         student1.displayInfo();
         System.out.println("Honor Student: " + student1.isHonorStudent());
         System.out.println("Can Graduate: " + student1.canGraduate());
 
+        student2.updateGPA(2);
         student2.displayInfo();
         System.out.println("Honor Student: " + student2.isHonorStudent());
         System.out.println("Can Graduate: " + student2.canGraduate());
 
+        student3.updateGPA(4);
         student3.displayInfo();
         System.out.println("Honor Student: " + student3.isHonorStudent());
         System.out.println("Can Graduate: " + student3.canGraduate());
