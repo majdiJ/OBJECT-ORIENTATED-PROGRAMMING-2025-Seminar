@@ -2,32 +2,32 @@ package edu.oop; // Do not remove
 
 // Implement your solution here
 class Book {
-    private String title;
-    private String author;
-    private int pages;
+    private static String title;
+    private static String author;
+    private static int pages;
 
     public Book(String title, String author, int pages) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
+        Book.title = title;
+        Book.author = author;
+        Book.pages = pages;
     }
 
     public String getTitle() {
-        return this.title;
+        return Book.title;
     }
 
     public String getAuthor() {
-        return this.author;
+        return Book.author;
     }
 
     public int getPages() {
-        return this.pages;
+        return Book.pages;
     }
 
     public void displayDetails() {
-        System.out.println("Title: " + this.title);
-        System.out.println("Author: " + this.author);
-        System.out.println("Pages: " + this.pages);
+        System.out.println("Title: " + Book.title);
+        System.out.println("Author: " + Book.author);
+        System.out.println("Pages: " + Book.pages);
     }
 
     public static void main(String[] args) {
